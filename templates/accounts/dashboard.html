@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="main">
+    <!-- Sign in  Form -->
+     <section class="sign-in">
+         <div class="container">
+             <div class="signin-content">
+                 <div class="signin-image">
+                     <figure><img src="{% static 'images/signin-image.jpg' %}" alt="sign up image"></figure>
+                     <a href="#" class="signup-image-link">Welcome, {{user.username}} </a>
+                 </div>
+
+                 <div class="signin-form"> 
+                     {% include 'partials/_alerts.html' %}
+                     <h2 class="form-title">Dashboard</h2>
+                     <p>
+                        Lorem Ipsum Generator. With our simple and useful tool you can generate a standard text which you can place in your web design to look more realistic. Would you like to get new text generated for your next project? Your configuration. Use the following options to generate a new lorem ipsum text for your next project. What is this?
+                        Lorem Ipsum Generator. With our simple and useful tool you can generate a standard text which you can place in your web design to look more realistic. Would you like to get new text generated for your next project? Your configuration. Use the following options to generate a new lorem ipsum text for your next project. What is this?
+                        Lorem Ipsum Generator. With our simple and useful tool you can generate a standard text which you can place in your web design to look more realistic. Would you like to get new text generated for your next project? Your configuration. Use the following options to generate a new lorem ipsum text for your next project. What is this?
+                     </p>
+                     <div class="social-login">
+                         <span class="social-label">Follow us on  --</span>
+                         <ul class="socials">
+                             <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                             <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                             <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+ </div>
+{% endblock %}
