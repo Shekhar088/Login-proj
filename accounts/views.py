@@ -4,6 +4,7 @@ from django.contrib import messages,auth
 from django.core.exceptions import NON_FIELD_ERRORS, ValidationError
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.mail import send_mail
 # Create your views here.
 
 def register(request):
@@ -23,6 +24,14 @@ def register(request):
                 else:
                     user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name)
                     user.save()
+    
+                    send_mail(
+                        'Subject here',
+                        'Thank you for registering in this site.',
+                        'shekshreth@gmail.com',
+                        [ user.email, 'shekharsth2020@gmail.com'],
+                        fail_silently=False,
+                    )
                     messages.success(request,"You can now log in.")
                     return redirect('login')
         else:
