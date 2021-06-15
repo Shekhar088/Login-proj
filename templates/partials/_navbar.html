@@ -1,37 +1,38 @@
-<nav class="topnav">
-    <div class="topnav-left">
-        <a href="#" >Home</a>
-        <a href="#"  >About</a>
-        <a href="#"  >Something</a>
-    </div>   
-    <div class="topnav-right">
-        {% if user.is_authenticated %}
-            <a href="{% url 'dashboard' %}"
-            {% if 'dashboard' in request.path %}
-                style="color:white;"
-            {% else%}
-                style ="color:#10284e"
-            {% endif %}
-            > Welcome, {{ user.username }}</a>
-            <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-            <form action="{% url 'logout' %}" method ="POST" id ="logout">
-                {% csrf_token %}
-                <input type="hidden">
-            </form>
+<nav>
+    <a href="#" class="logo"> Logo</a>
+  <br/>
+  <div class="menu">
+    
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}"
+        {% if dashboard in request.path %}
+        style="text-decoration: underline solid white;";
         {% else %}
-            <a href="{% url 'register' %}"
-            {% if '/' == request.path%}
-                style="color:white;"
-            {% else%}
-                style ="color:#10284e"
-            {% endif %}
-            > Register</a>
-                <a href="{% url 'login' %}"
-                {% if 'login' in request.path %}
-                style="color:white;"
-            {% else%}S
-                style ="color:#10284e"
-            {% endif %}>Login</a>
-    </div>    
+            style="color:white";
+        {%endif%}>Welcome {{user.username}}(Dashboard)</a>
+
+        <a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+        <form action="{% url 'logout'%}" id ="logout" method="POST">
+            {% csrf_token %}
+            <input type="hidden">
+
+        </form>
+    {% else %}
+    <a href="{% url 'register'%}"
+    {% if '/' == request.path %}
+        style="text-decoration: underline solid white;";
+    {% else %}
+        style="color:white;"
+    {%endif%}>Register</a>
+    <a href="{% url 'login' %}"
+    {% if 'login' in request.path %}
+        style="text-decoration: underline solid white;";
+    {% else %}
+        style="color:white;"
+    {%endif%}>Login</a>
     {% endif %}
+
+  </div>
 </nav>
